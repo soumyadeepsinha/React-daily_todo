@@ -129,6 +129,22 @@ h1 {
   );
 }
 
+.todo-row:nth-child(4n + 4) {
+  background: linear-gradient(
+    90deg,
+    rgba(210, 59, 15, 0.8) 0%,
+    rgba(207, 62, 10, 0.65) 100%
+  );
+}
+
+.todo-row:nth-child(4n + 5) {
+  background: linear-gradient(
+    90deg,
+    rgba(10, 159, 55, 0.8) 0%,
+    rgba(20, 162, 85, 0.65) 100%
+  );
+}
+
 .icons {
   display: flex;
   align-items: center;
