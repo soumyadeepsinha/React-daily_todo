@@ -1,6 +1,7 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react'
 
 function TodoForm(props) {
+
   const [input, setInput] = useState(props.edit ? props.edit.value : '')
 
   const formRef = useRef(null)
@@ -14,20 +15,21 @@ function TodoForm(props) {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
     props.onSubmit({
       id: Math.floor(Math.random() * 10000),
       text: input
     });
-    setInput('');
-  };
+    setInput('')
+  }
+
 
   return (
     <React.Fragment>
       <form className="todo_form" onSubmit={handleSubmit}>
-        {props.edit ? (
-          <React.Fragment>
+        {props.edit ?
+          (<React.Fragment>
             <input
               className='todo_input edit'
               name='text'
@@ -39,25 +41,24 @@ function TodoForm(props) {
             <button onClick={handleSubmit} className='todo-button edit'>
               Update todo
             </button>
-          </React.Fragment>
-        ) : (
-            <React.Fragment>
-              <input
-                className='todo_input'
-                name='text'
-                value={input}
-                onChange={handleChange}
-                ref={formRef}
-                placeholder='Add a todo'
-              />
-              <button onClick={handleSubmit} className='todo-button'>
-                Add new todo
+          </React.Fragment>) :
+          (<React.Fragment>
+            <input
+              className='todo_input'
+              name='text'
+              value={input}
+              onChange={handleChange}
+              ref={formRef}
+              placeholder='Add a todo'
+            />
+            <button onClick={handleSubmit} className='todo-button'>
+              Add new todo
               </button>
-            </React.Fragment>
-          )}
+          </React.Fragment>)
+        }
       </form>
     </React.Fragment>
-  );
+  )
 }
 
-export default TodoForm;
+export default TodoForm
